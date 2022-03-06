@@ -1,0 +1,15 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-DemoApigeryApplication<demo-apigery>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "console": "internalConsole",
+      "mainClass": "com.domaingerry.DemoApigeryApplication",
+      "projectName": "demo-apigery",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}
