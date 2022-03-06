@@ -2,26 +2,31 @@ package com.domaingerry.models.entities;
 
 import java.io.Serializable;
 
-// import javax.persistence.Column;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+
+
 
 @Entity
 @Table(name="tbl_product")
 public class Product implements Serializable{
 
-    // private static final long serialVersionUID=1L;
+    private static final long serialVersionUID=1L;
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
 
-    // @Column(name="product_name",length = 100)
+    @NotEmpty(message = "Name is Required")
+    @Column(name="product_name",length = 100)
     private String name;
 
-    // @Column(name="product_description",length = 500)
+    @NotEmpty(message = "Description is Required")
+    @Column(name="product_description",length = 500)
     private String description;
 
     private Double price;
