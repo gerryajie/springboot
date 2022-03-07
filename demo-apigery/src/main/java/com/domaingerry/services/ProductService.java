@@ -6,6 +6,7 @@ import java.util.Optional;
 import javax.transaction.Transactional;
 
 import com.domaingerry.models.entities.Product;
+import com.domaingerry.models.entities.Supplier;
 import com.domaingerry.models.repos.ProductRepo;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +43,14 @@ public class ProductService {
     }
     public List<Product>findByName(String name){
         return productRepo.findByNameContains(name);
+    }
+    public void addSupliers(Supplier supplier,Long productId){
+        Product product=findOne(productId);
+        if(product==null){
+            throw new RuntimeException("Product With ID:"+productId+"not Found");
+        }
+        product.getSuppliers().add(supplier);
+        save(product);
     }
 
 }
